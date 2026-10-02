@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Реклама в эфире</title>
+</head>
+<body>
+<div class="header">
+    <img src="{% static 'img/tv_logo.svg' %}" alt="Логотип телекомпании" height="60">
+    <h1>Рекламные ролики телекомпании</h1>
+</div>
+<div class="archive">
+    {% for post in posts %}
+    <div class="one-post">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <div class="article-info">
+            <div class="article-author">Агент: {{ post.agent }}</div>
+            <div class="article-created-date">Эфир: {{ post.air_date }}</div>
+        </div>
+        <div class="ad-details">
+            Заказчик: {{ post.customer.name }} |
+            Передача: {{ post.program.name }} (рейтинг {{ post.program.rating }}) |
+            {{ post.duration }} с | Стоимость: {{ post.get_cost }} руб.
+        </div>
+        <p class="article-text">{{ post.get_excerpt }}</p>
+    </div>
+    {% empty %}
+    <p>Рекламных роликов пока нет.</p>
+    {% endfor %}
+</div>
+</body>
+</html>
