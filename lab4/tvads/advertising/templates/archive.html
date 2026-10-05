@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реклама в эфире</title>
+    <link rel="stylesheet" href="{% static 'css/ads.css' %}">
+</head>
+<body class="archive">
+<div class="header">
+    <img src="{% static 'img/logo.svg' %}" alt="Реклама в эфире">
+</div>
+<div class="archive">
+    {% for post in posts %}
+    <div class="one-post">
+        <h2 class="post-title">
+            <a href="{% url 'get_ad' ad_id=post.id %}">{{ post.title }}</a>
+        </h2>
+        <div class="article-info">
+            <div class="article-author">{{ post.agent }}</div>
+            <div class="article-created-date">{{ post.air_date|date:"j E Y" }}</div>
+        </div>
+        <div class="ad-details">
+            {{ post.customer.name }} · «{{ post.program.name }}» ·
+            {{ post.duration }} с · {{ post.get_cost }} руб.
+        </div>
+        <p class="article-text">{{ post.get_excerpt }}</p>
+    </div>
+    {% empty %}
+    <p>Рекламных роликов пока нет.</p>
+    {% endfor %}
+</div>
+</body>
+</html>
