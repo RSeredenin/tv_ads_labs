@@ -1,0 +1,11 @@
+<div class="nav">
+    {% if show_all_link %}<a href="{% url 'archive' %}">Все записи</a>{% endif %}
+    {% if user.is_authenticated %}
+    <span class="nav-user">{{ user.get_full_name|default:user.username }}</span>
+    <a href="{% url 'create_ad' %}">Новый ролик</a>
+    <a href="{% url 'logout' %}">Выход</a>
+    {% else %}
+    <a href="{% url 'login' %}">Вход</a>
+    <a href="{% url 'register' %}">Регистрация</a>
+    {% endif %}
+</div>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реклама в эфире – новый рекламный ролик</title>
+    <link rel="stylesheet" href="{% static 'css/ads.css' %}">
+</head>
+<body class="article create">
+<div class="header">
+    <img src="{% static 'img/logo.svg' %}" alt="Реклама в эфире">
+    {% include 'nav.html' with show_all_link=True %}
+</div>
+<div class="content">
+    <h1>Новый рекламный ролик</h1>
+    {% if not_agent %}
+    <p class="form-errors">Ваша учётная запись не связана с рекламным агентом.
+        Добавлять ролики могут только рекламные агенты.</p>
+    {% else %}
+    <p class="agent-name">Агент: {{ user.get_full_name|default:user.username }}</p>
+    <form method="POST" class="ad-form">{% csrf_token %}
+        <label>Название ролика
+            <input type="text" name="title" placeholder="Название ролика"
+                   value="{{ form.title }}">
+        </label>
+        <label>Заказчик
+            <select name="customer">
+                <option value="">— выберите заказчика —</option>
+                {% for c in customers %}
+                <option value="{{ c.id }}" {% if form.customer == c.id|stringformat:"s" %}selected{% endif %}>{{ c.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <label>Передача
+            <select name="program">
+                <option value="">— выберите передачу —</option>
+                {% for p in programs %}
+                <option value="{{ p.id }}" {% if form.program == p.id|stringformat:"s" %}selected{% endif %}>{{ p.name }} (рейтинг {{ p.rating }}, {{ p.price_per_minute }} руб./мин)</option>
+                {% endfor %}
+            </select>
+        </label>
+        <div class="form-row">
+            <label>Дата выхода в эфир
+                <input type="date" name="air_date" value="{{ form.air_date }}">
+            </label>
+            <label>Продолжительность, с
+                <input type="number" name="duration" min="1" placeholder="30"
+                       value="{{ form.duration }}">
+            </label>
+        </div>
+        <label>Описание ролика
+            <textarea name="description" rows="6"
+                      placeholder="Описание ролика">{{ form.description }}</textarea>
+        </label>
+        <input type="submit" value="Сохранить">
+    </form>
+    {% if form.errors %}
+    <ul class="form-errors">
+        {% for error in form.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endif %}
+</div>
+</body>
+</html>

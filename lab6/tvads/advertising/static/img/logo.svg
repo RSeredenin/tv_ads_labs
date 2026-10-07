@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318 64" width="318" height="64">
+  <rect x="4" y="6" width="314" height="58" rx="8" fill="#0f7a64"/>
+  <rect x="0" y="0" width="314" height="58" rx="8" fill="#16a085"/>
+  <rect x="0" y="0" width="314" height="58" rx="8" fill="#000000" opacity="0.25"/>
+  <rect x="16" y="15" width="34" height="26" rx="4" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <polygon points="29,21 29,35 39,28" fill="#ffffff"/>
+  <line x1="27" y1="46" x2="39" y2="46" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <text x="62" y="38" font-family="Tahoma, Arial, sans-serif" font-size="25" font-weight="bold" fill="#ffffff">Реклама в эфире</text>
+</svg>
