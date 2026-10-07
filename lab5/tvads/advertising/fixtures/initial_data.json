@@ -1,0 +1,95 @@
+[
+  {
+    "model": "advertising.program",
+    "pk": 1,
+    "fields": {
+      "name": "Новости дня",
+      "rating": "8.7",
+      "price_per_minute": "90000.00"
+    }
+  },
+  {
+    "model": "advertising.program",
+    "pk": 2,
+    "fields": {
+      "name": "Вечерний сериал",
+      "rating": "7.5",
+      "price_per_minute": "75000.00"
+    }
+  },
+  {
+    "model": "advertising.program",
+    "pk": 3,
+    "fields": {
+      "name": "Футбольное обозрение",
+      "rating": "6.1",
+      "price_per_minute": "55000.00"
+    }
+  },
+  {
+    "model": "advertising.program",
+    "pk": 4,
+    "fields": {
+      "name": "Утро с нами",
+      "rating": "4.2",
+      "price_per_minute": "30000.00"
+    }
+  },
+  {
+    "model": "advertising.program",
+    "pk": 5,
+    "fields": {
+      "name": "Кулинарный час",
+      "rating": "3.8",
+      "price_per_minute": "25000.00"
+    }
+  },
+  {
+    "model": "advertising.customer",
+    "pk": 1,
+    "fields": {
+      "name": "ООО «Ромашка»",
+      "inn": "7701234567",
+      "bank_name": "ПАО Сбербанк",
+      "bank_account": "40702810938000012345",
+      "phone": "+7 (495) 100-10-10",
+      "contact_person": "Смирнова Елена Викторовна"
+    }
+  },
+  {
+    "model": "advertising.customer",
+    "pk": 2,
+    "fields": {
+      "name": "АО «ТехноСвязь»",
+      "inn": "7709876543",
+      "bank_name": "АО «Альфа-Банк»",
+      "bank_account": "40702810400000054321",
+      "phone": "+7 (495) 200-20-20",
+      "contact_person": "Кузнецов Павел Андреевич"
+    }
+  },
+  {
+    "model": "advertising.customer",
+    "pk": 3,
+    "fields": {
+      "name": "ООО «СпортМаркет»",
+      "inn": "5003112233",
+      "bank_name": "Банк ВТБ (ПАО)",
+      "bank_account": "40702810700000098765",
+      "phone": "+7 (495) 300-30-30",
+      "contact_person": "Волков Денис Игоревич"
+    }
+  },
+  {
+    "model": "advertising.customer",
+    "pk": 4,
+    "fields": {
+      "name": "ООО «Вкусный дом»",
+      "inn": "7725445566",
+      "bank_name": "АО «Тинькофф Банк»",
+      "bank_account": "40702810010000011223",
+      "phone": "+7 (495) 400-40-40",
+      "contact_person": "Морозова Анна Сергеевна"
+    }
+  }
+]
