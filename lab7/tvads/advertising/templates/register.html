@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реклама в эфире – регистрация агента</title>
+    <link rel="stylesheet" href="{% static 'css/ads.css' %}">
+</head>
+<body class="article auth">
+<div class="header">
+    <img src="{% static 'img/logo.svg' %}" alt="Реклама в эфире">
+    {% include 'nav.html' with show_all_link=True %}
+</div>
+<div class="content">
+    <h1>Регистрация рекламного агента</h1>
+    <form method="POST" class="ad-form auth-form">{% csrf_token %}
+        <label>Логин
+            <input type="text" name="username" placeholder="Логин"
+                   value="{{ form.username }}">
+        </label>
+        <div class="form-row">
+            <label>Имя
+                <input type="text" name="first_name" placeholder="Имя"
+                       value="{{ form.first_name }}">
+            </label>
+            <label>Фамилия
+                <input type="text" name="last_name" placeholder="Фамилия"
+                       value="{{ form.last_name }}">
+            </label>
+        </div>
+        <label>Email
+            <input type="email" name="email" placeholder="agent@mail.ru"
+                   value="{{ form.email }}">
+        </label>
+        <label>Телефон
+            <input type="tel" name="phone" placeholder="+7 (495) 000-00-00"
+                   value="{{ form.phone }}">
+        </label>
+        <label>Пароль (не менее 8 символов)
+            <input type="password" name="password" placeholder="Пароль">
+        </label>
+        <label>Повторите пароль
+            <input type="password" name="password2" placeholder="Пароль ещё раз">
+        </label>
+        <input type="submit" value="Зарегистрироваться">
+        <p class="form-hint">Уже зарегистрированы? <a href="{% url 'login' %}">Войти</a></p>
+    </form>
+    {% if form.errors %}
+    <ul class="form-errors auth-form">
+        {% for error in form.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+</body>
+</html>
